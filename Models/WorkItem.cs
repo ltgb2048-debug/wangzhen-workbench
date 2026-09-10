@@ -47,7 +47,7 @@ public sealed class WorkItem : INotifyPropertyChanged
         {
             if (_isCompleted == value) return;
             _isCompleted = value;
-            if (!_isManualProgress)
+            if (!IsManualProgress)
             {
                 _progress = value ? 100 : 0;
                 OnPropertyChanged(nameof(Progress));
