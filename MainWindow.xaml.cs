@@ -14,7 +14,7 @@ using Forms = System.Windows.Forms;
 
 namespace WangzhenWorkbench;
 
-public partial class MainWindow : Window
+public partial class MainWindow : System.Windows.Window
 {
     private readonly WorkbenchDatabase _db = new();
     private readonly DispatcherTimer _timer = new() { Interval = TimeSpan.FromSeconds(30) };
@@ -141,13 +141,13 @@ public partial class MainWindow : Window
 
     private void IncreaseProgress_Click(object sender, RoutedEventArgs e)
     {
-        if ((sender as Button)?.Tag is not WorkItem item) return;
+        if ((sender as System.Windows.Controls.Button)?.Tag is not WorkItem item) return;
         item.Progress += 10;
     }
 
     private void DecreaseProgress_Click(object sender, RoutedEventArgs e)
     {
-        if ((sender as Button)?.Tag is not WorkItem item) return;
+        if ((sender as System.Windows.Controls.Button)?.Tag is not WorkItem item) return;
         item.Progress -= 10;
     }
 
@@ -182,7 +182,7 @@ public partial class MainWindow : Window
             sb.AppendLine($"最近节点：{milestone.Title}（{milestone.DueAt:MM月dd日 HH:mm}）");
         }
 
-        Clipboard.SetText(sb.ToString());
+        System.Windows.Clipboard.SetText(sb.ToString());
         StatusText.Text = "今日汇报已复制到剪贴板，可直接粘贴后微调。";
     }
 
