@@ -1,3 +1,4 @@
+using System.IO;
 using Microsoft.Data.Sqlite;
 using WangzhenWorkbench.Models;
 
@@ -57,7 +58,6 @@ public sealed class WorkbenchDatabase
             new Seed("daily-redbook-" + today.ToString("yyyyMMdd"), "小红书日更3条", "固定工作", today.AddHours(17).AddMinutes(50), "B", false, false),
             new Seed("daily-summary-" + today.ToString("yyyyMMdd"), "下班前记录今日完成", "固定工作", today.AddHours(18).AddMinutes(10), "A", false, false),
 
-            // 2026-09-10 当前重点：明天事业单位专场前的收口任务。
             new Seed("work-20260910-live-sop", "事业单位直播SOP定稿", "事业单位专场", new DateTime(2026, 9, 10, 17, 0, 0), "S", true, false),
             new Seed("work-20260910-filter-test", "筛岗工具实战测试", "事业单位专场", new DateTime(2026, 9, 10, 17, 30, 0), "S", true, false),
             new Seed("work-20260910-material-check", "明日直播人员/物料确认", "事业单位专场", new DateTime(2026, 9, 10, 18, 0, 0), "A", false, false),
